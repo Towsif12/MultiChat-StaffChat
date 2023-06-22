@@ -29,7 +29,7 @@ jobs:
     - name: Upload binaries to release
       uses: svenstaro/upload-release-action@v2
       with:
-        repo_token: ${{ secrets.REPO_TOKEN }}
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
         file: target/timedwhitelist-1.0-SNAPSHOT.jar
         asset_name: MultiChatSC-AutoBuild.jar
         tag: Build
