@@ -1,0 +1,4 @@
+name: MultiChatSC
+version: '${project.version}'
+main: com.towsifkafi.mc.multichatsc.MultiChatSC
+description: A plugin to link MultiChat plugin's staff chat to discord.

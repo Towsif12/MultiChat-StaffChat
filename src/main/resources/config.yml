@@ -1,0 +1,6 @@
+prefix: "&3MultiChatSync &7»&r"
+
+message-template: "> [{SERVER}] **{SENDER}** : {MESSAGE}"
+channels:
+  staffchat: "123456789012345678"
+  adminchat: "123456789012345678"
