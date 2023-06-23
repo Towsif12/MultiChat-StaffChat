@@ -30,8 +30,8 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: target/timedwhitelist-1.0-SNAPSHOT.jar
+        file: target/MultiChatSC-1.0-SNAPSHOT.jar
         asset_name: MultiChatSC-AutoBuild.jar
-        tag: Build
+        tag: ${{ github.ref }}
         overwrite: true
         body: "Automaticly generated release after push to main branch"
