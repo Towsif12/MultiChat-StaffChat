@@ -34,4 +34,4 @@ jobs:
         asset_name: MultiChatSC-AutoBuild.jar
         tag: ${{ github.ref }}
         overwrite: true
-        body: "Automaticly generated release after push to main branch"
+        body: "Automaticly generated release after push to main branch."
