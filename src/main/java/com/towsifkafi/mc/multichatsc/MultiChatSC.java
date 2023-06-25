@@ -38,6 +38,7 @@ public final class MultiChatSC extends Plugin {
         pM.registerListener(this, new StaffChatEvent(this));
 
         //Spicord
+        addon = new SPAddon(this);
         SpicordLoader.addStartupListener(spicord -> spicord.getAddonManager().registerAddon(this.addon));
 
         //Log

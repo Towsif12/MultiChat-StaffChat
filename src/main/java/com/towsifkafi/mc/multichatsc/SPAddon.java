@@ -19,13 +19,19 @@ public class SPAddon extends SimpleAddon {
         this.plugin = pl;
     }
 
+    @Override
     public void onLoad(DiscordBot bot) {
         this.bot = bot;
         this.prefix = bot.getCommandPrefix();
-        bot.getJda().addEventListener(new Object[] { new MessageListenerBungee(this.plugin) });
     }
 
-    public void onShutdown() {
+    @Override
+    public void onReady(DiscordBot bot) {
+        bot.getJda().addEventListener(new MessageListenerBungee(this.plugin));
+    }
+
+    @Override
+    public void onShutdown(DiscordBot bot) {
         this.plugin.logger.log("&cDiscord ChatSync Disabled");
     }
 
@@ -34,7 +40,11 @@ public class SPAddon extends SimpleAddon {
         String config = (Objects.equals(type, "mod")) ? "staffchat" : "adminchat";
 
         TextChannel tc = this.bot.getJda().getTextChannelById(this.plugin.config.getSection("channels").getString(config));
-        tc.sendMessage(message).queue();
+        if (tc != null) {
+            tc.sendMessage(message).queue();
+        } else {
+            plugin.logger.log("No channel set in config.yml");
+        }
     }
 
 }
